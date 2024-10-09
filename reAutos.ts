@@ -56,14 +56,3 @@ export class Autos {
         }
     }
 }
-/*
-if(this.marcaAuto!=undefined&&this.modeloAuto!=undefined&&this.valorAuto!=undefined) {
-            console.log("Se requiere ingresar más datos para inscribir un nuevo vehiculo")
-        }else if(this.valorAuto!=numero) {
-            console.log("EL valor ingresado no es correcto")
-        }else if(this.modeloAuto!=string&&this.marcaAuto!=string){
-            console.log("Los datos ingresados son incorrectos")
-        }else{
-            this.arrAutos.push();
-        }
-*/

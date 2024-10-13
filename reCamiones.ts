@@ -1,6 +1,7 @@
-import { Autos } from "./reAutos";
+import { patentes } from "./patentes";
+import { Vehiculos } from "./reVehiculos";
 
-export class Camiones extends Autos{
+export class Camiones extends Vehiculos{
     private arrCamiones: Camiones[]=[];
     public constructor(marca: string, modelo: string, valor: string) {
         super(marca,modelo,valor);
@@ -8,12 +9,13 @@ export class Camiones extends Autos{
     //------
     public agregarCamion(marca:string,modelo:string,valor:string) {
         const nuevoCamion = new Camiones(marca,modelo,valor);
-        this.arrCamiones.push(nuevoCamion);
+        const patente = new patentes("");
+        console.log("Se agregó el nuevo Camion: ",+marca,"\nCon el dominio: ",+ patente.asignarPatente());
     }
     //-----
     public modificarCamion(nuevaMarca:string, nuevoModelo: string, nuevoValor: string,i: number) {
         if(i>=0 && i< this.arrCamiones.length) {
-            const camion: Autos = this.arrCamiones[i];
+            const camion: Camiones = this.arrCamiones[i];
             camion.setMarca(nuevaMarca);
             camion.setModelo(nuevoModelo);
             camion.setValor(nuevoValor);

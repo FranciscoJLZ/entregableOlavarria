@@ -6,14 +6,19 @@ import  { Autos } from "./reAutos"; import { Camionetas } from "./reCamionetas";
 
 //----------------------
 
+
 export class RegistroAutomotor{
+  
     private vehiculos: Autos[] | Motos[] | Camionetas[] = [];
     //------
     constructor(){
         this.vehiculos=this.vehiculos;
     }
+
 }
 
 let nuevoAuto_1 = new Autos("Chevrolet","Corsa","4500000");
 let nuevaMoto_1 = new Motos("Honda","Navi","220000");
 let nuevaCamioneta_2 = new Camionetas("Nissan","Versa","6000000");
+
+

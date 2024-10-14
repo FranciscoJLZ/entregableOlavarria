@@ -1,3 +1,4 @@
+
 import { patentes } from "./patentes";
 import { Vehiculos } from "./reVehiculos";
 
@@ -13,7 +14,6 @@ export class Motos extends Vehiculos{
         this.arrMotos.push(nuevaMoto);
         const patente = new patentes("");
         console.log("Se agregó la nueva Moto ",+marca,"\nCon el dominio: ",+ patente.asignarPatente());
-
     }
     public modificarMoto(nuevaMarca:string, nuevoModelo: string, nuevoValor: string,i: number) {
         if(i>=0 && i< this.arrMotos.length) {

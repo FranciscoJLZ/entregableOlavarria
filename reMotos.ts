@@ -1,39 +1,19 @@
-export class Motos {
+
+import { patentes } from "./patentes";
+import { Vehiculos } from "./reVehiculos";
+
+export class Motos extends Vehiculos{
     private arrMotos: Motos[]=[];
-    private marcaMoto: string;
-    private modeloMoto: string;
-    private valorMoto: string;
     //-----------------
-    constructor(marcaMoto: string, modeloMoto: string, valorMoto: string){
-        this.marcaMoto= marcaMoto;
-        this.modeloMoto=modeloMoto;
-        this.valorMoto=valorMoto;
-    }
-    //pseudo,getters----
-    getMarca(){
-        return this.marcaMoto;
-    }
-    getModelo(){
-        return this.modeloMoto;
-    }
-    getValor(){
-        return this.valorMoto;
-    }
-    //psudo,setters----
-    setMarca(marcaMoto: string){
-        this.marcaMoto = marcaMoto;
-    }
-    setModelo(modeloMoto: string) {
-        this.modeloMoto = modeloMoto;
-    }
-    setValor(valorMoto:string){
-        this.valorMoto=valorMoto;
+    constructor(marca:string,modelo:string,valor:string){
+        super(marca,modelo,valor)
     }
     //Methods----
-    public agregarMoto(marcaMoto:string,modeloMoto:string,valorMoto:string){
-        const nuevaMoto: Motos = new Motos(marcaMoto,modeloMoto,valorMoto);
+    public agregarMoto(marca:string,modelo:string,valor:string){
+        const nuevaMoto: Motos = new Motos(marca,modelo,valor);
         this.arrMotos.push(nuevaMoto);
-        console.log("Se agregó la nueva Moto ",+marcaMoto);
+        const patente = new patentes("");
+        console.log("Se agregó la nueva Moto ",+marca,"\nCon el dominio: ",+ patente.asignarPatente());
     }
     public modificarMoto(nuevaMarca:string, nuevoModelo: string, nuevoValor: string,i: number) {
         if(i>=0 && i< this.arrMotos.length) {

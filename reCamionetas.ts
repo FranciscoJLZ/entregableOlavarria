@@ -1,39 +1,18 @@
-export class Camionetas {
+import { Vehiculos } from "./reVehiculos";
+import { patentes } from "./patentes";
+
+export class Camionetas extends Vehiculos {
     private arrCamionetas: Camionetas[]=[];
-    private marcaCamioneta: string;
-    private modeloCamioneta: string;
-    private valorCamioneta: string;
     //-----------------
-    constructor(marcaCamioneta: string, modeloCamioneta: string, valorCamioneta: string){
-        this.marcaCamioneta= marcaCamioneta;
-        this.modeloCamioneta=modeloCamioneta;
-        this.valorCamioneta=valorCamioneta;
-    }
-    //pseudo,getters----
-    getMarca(){
-        return this.marcaCamioneta;
-    }
-    getModelo(){
-        return this.modeloCamioneta;
-    }
-    getValor(){
-        return this.valorCamioneta;
-    }
-    //psudo,setters----
-    setMarca(marcaCamioneta: string){
-        this.marcaCamioneta = marcaCamioneta;
-    }
-    setModelo(modeloCamioneta: string) {
-        this.modeloCamioneta = modeloCamioneta;
-    }
-    setValor(valorCamioneta:string){
-        this.valorCamioneta=valorCamioneta;
+    constructor(marca: string, modelo: string, valor: string){
+     super(marca,modelo,valor);   
     }
     //Methods-------
-    public agregarCamioneta(marcaCamioneta:string,modeloCamioneta:string,valorCamioneta:string){
-        const nuevaCamioneta = new Camionetas(marcaCamioneta,modeloCamioneta,valorCamioneta)
+    public agregarCamioneta(marca:string,modelo:string,valor:string){
+        const nuevaCamioneta = new Camionetas(marca,modelo,valor)
         this.arrCamionetas.push(nuevaCamioneta);
-        console.log("Se agregó la nueva camioneta: ",+marcaCamioneta);
+        const patente = new patentes("");
+        console.log("Se agregó la nueva Camioneta ",+marca,"\nCon el dominio: ",+ patente.asignarPatente());
     }
     public modificarMoto(nuevaMarca:string, nuevoModelo: string, nuevoValor: string,i: number) {
         if(i>=0 && i< this.arrCamionetas.length) {

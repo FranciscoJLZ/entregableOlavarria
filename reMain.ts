@@ -1,24 +1,38 @@
-//Implementar la clase RegistroAutomotor (Autos, motos, camiones) y deben tener los metodos: AgregarVehiculo, get y set, modificar un vechiculo, y dar de baja. 
-//Incorporando conceptos nuevos: Encapsulamiento y composición
-
-
-import  { Autos } from "./reAutos"; import { Camionetas } from "./reCamionetas"; import { Motos } from "./reMotos";
-
+import { patentes } from "./patentes"; import { Vehiculos } from "./reVehiculos";
 //----------------------
 
 
-export class RegistroAutomotor{
-  
-    private vehiculos: Autos[] | Motos[] | Camionetas[] = [];
+class RegistroAutomotor extends Vehiculos{
     //------
-    constructor(){
-        this.vehiculos=this.vehiculos;
+    constructor(modelo, marca, valor){
+        super(modelo,marca,valor)
+    }
+    //methods----
+    public agregarVehiculo(marca:string,modelo:string,valor:string, agg:Vehiculos){ 
+        const nuevoVehiculo = new RegistroAutomotor(marca,modelo,valor);
+        this.arrVehiculos.push(nuevoVehiculo);
+        const patente = new patentes("");
+        console.log("Se agregó el Vehiculo: ",+marca,"\nCon el dominio: ",+ patente.asignarPatente());
+    }
+
+    public modificarVehiculo(nuevaMarca:string, nuevoModelo: string, nuevoValor: string,i: number) {
+        if(i>=0 && i< this.arrVehiculos.length) {
+            const auto: Vehiculos = this.arrVehiculos[i];
+            auto.setMarca(nuevaMarca);
+            auto.setModelo(nuevoModelo);
+            auto.setValor(nuevoValor);
+            console.log("Se ha modificado el vehiculo con exito.")
+        }else{
+            console.log("Iterador inválido.")
+        }
+    }
+    public darDeBaja(i: number): void {
+        if (i >= 0 && i < this.arrVehiculos.length) {
+            this.arrVehiculos.splice(i, 1);
+            console.log("Se ha dado de baja el vehiculo numero: ", i);
+        } else {
+            console.log("Iterador inválido.");
+        }
     }
 
 }
-
-let nuevoAuto_1 = new Autos("Chevrolet","Corsa","4500000");
-let nuevaMoto_1 = new Motos("Honda","Navi","220000");
-let nuevaCamioneta_2 = new Camionetas("Nissan","Versa","6000000");
-
-

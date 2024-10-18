@@ -1,4 +1,5 @@
 export class Vehiculos {
+    protected arrVehiculos:Vehiculos[]=[];
     protected valor: string;
     protected modelo: string;
     protected marca: string;

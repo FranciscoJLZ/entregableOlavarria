@@ -1,16 +1,17 @@
 import { RegistroAutomotor } from "./reMain";
-export class Camiones extends RegistroAutomotor{
+import { Vehiculos } from "./reVehiculos";
+export class Camiones extends Vehiculos{
     private acoplado:boolean;
     public constructor(marca: string, modelo: string, valor: string, acoplado:boolean) {
         super(marca,modelo,valor);
         this.acoplado=acoplado;
     }
     //getters----
-    getAcoplado(){
+    public getAcoplado(){
         return this.acoplado;
     }
     //setters----
-    setAcoplado(acoplado:boolean){
+    public setAcoplado(acoplado:boolean){
         return this.acoplado;
     }
     //Methods----

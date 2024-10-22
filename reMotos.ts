@@ -1,5 +1,6 @@
 import { RegistroAutomotor } from "./reMain"
-export class Motos extends RegistroAutomotor {
+import { Vehiculos } from "./reVehiculos";
+export class Motos extends Vehiculos {
     private cilindrada: number;
     //-----------------
     constructor(marca: string, modelo: string, valor: string, cilindrada: number) {
@@ -7,11 +8,11 @@ export class Motos extends RegistroAutomotor {
         this.cilindrada = cilindrada;
     }
     //getters----
-    getCilindrada() {
+    public getCilindrada() {
         return this.cilindrada;
     }
     //setters----
-    setCilindrada(cilindrada: number) {
+    public setCilindrada(cilindrada: number) {
         return this.cilindrada;
     }
     //methods----

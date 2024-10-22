@@ -1,5 +1,6 @@
 import { RegistroAutomotor } from "./reMain";
-export class Camionetas extends RegistroAutomotor {
+import { Vehiculos } from "./reVehiculos";
+export class Camionetas extends Vehiculos {
     private tieneTacos: boolean;
     //-----------------
     constructor(marca: string, modelo: string, valor: string, tieneTacos: boolean){
@@ -7,11 +8,11 @@ export class Camionetas extends RegistroAutomotor {
      this.tieneTacos=tieneTacos;
     }
     //Getters-----
-    getTieneTacos(){
+    public getTieneTacos(){
         return this.tieneTacos;
     }
     //Setters----
-    setTieneTacos(tieneTacos:boolean) {
+    public setTieneTacos(tieneTacos:boolean) {
         return this.tieneTacos;
     }
     //methods---- 

@@ -1,5 +1,5 @@
-import { RegistroAutomotor } from "./reMain"
-export class Autos extends RegistroAutomotor {
+import { Vehiculos } from "./reVehiculos";
+export class Autos extends Vehiculos {
     private tanqueLLeno:Boolean;
     //-----------------
     constructor(marca: string, modelo: string, valor: string,tanqueLLeno:Boolean){
@@ -7,11 +7,11 @@ export class Autos extends RegistroAutomotor {
         tanqueLLeno = this.tanqueLLeno;
     }
     //getters---
-    getTanqueLLeno(){
+    public getTanqueLLeno(){
         return this.tanqueLLeno;
     }
     //setters---
-    settanqueLLeno(tanqueLLeno:boolean){
+    public settanqueLLeno(tanqueLLeno:boolean){
         return this.tanqueLLeno;
     }
     //----
@@ -20,7 +20,7 @@ export class Autos extends RegistroAutomotor {
         if(tanque = true){
             console.log("El tanque está lleno");
         }else if(tanque = false){
-            console.log("Hay que llenar le tanque");
+            console.log("Hay que llenar el tanque");
         }
     }
 }

@@ -1,58 +1,27 @@
-export class Autos {
-    private arrAutos: Autos[]=[];
-    private marcaAuto: string;
-    private modeloAuto: string;
-    private valorAuto: string;
+import { Vehiculos } from "./reVehiculos";
+export class Autos extends Vehiculos {
+    private tanqueLLeno:Boolean;
     //-----------------
-    constructor(marcaAuto: string, modeloAuto: string, valorAuto: string){
-        this.marcaAuto= marcaAuto;
-        this.modeloAuto=modeloAuto;
-        this.valorAuto=valorAuto;
+    constructor(marca: string, modelo: string, valor: string,tanqueLLeno:Boolean){
+        super(marca,modelo,valor)
+        tanqueLLeno = this.tanqueLLeno;
     }
-    //pseudo,getters----
-    getMarca(){
-        return this.marcaAuto;
+    //getters---
+    public getTanqueLLeno(){
+        return this.tanqueLLeno;
     }
-    getModelo(){
-        return this.modeloAuto;
+    //setters---
+    public settanqueLLeno(tanqueLLeno:boolean){
+        return this.tanqueLLeno;
     }
-    getValor(){
-        return this.valorAuto;
-    }
-    //psudo,setters----
-    setMarca(marcaAuto: string): void{
-        this.marcaAuto = marcaAuto;
-    }
-    setModelo(modeloAuto: string): void {
-        this.modeloAuto = modeloAuto;
-    }
-    setValor(valorAuto:string): void{
-        this.valorAuto=valorAuto;
-    }
-    //methods----
-    public agregarAuto(marcaAuto:string,modeloAuto:string,valorAuto:string){ 
-        const nuevoAuto = new Autos(marcaAuto,modeloAuto,valorAuto);
-        this.arrAutos.push(nuevoAuto);
-        console.log("Se agregó el nuevo auto ", nuevoAuto);
-    }
-
-    public modificarAuto(nuevaMarca:string, nuevoModelo: string, nuevoValor: string,i: number) {
-        if(i>=0 && i< this.arrAutos.length) {
-            const auto: Autos = this.arrAutos[i];
-            auto.setMarca(nuevaMarca);
-            auto.setModelo(nuevoModelo);
-            auto.setValor(nuevoValor);
-            console.log("Se ha modificado el vehiculo con exito.")
-        }else{
-            console.log("Iterador inválido.")
-        }
-    }
-    public darDeBaja(i: number): void {
-        if (i >= 0 && i < this.arrAutos.length) {
-            this.arrAutos.splice(i, 1);
-            console.log("Se ha dado de baja el auto en el índice ", i);
-        } else {
-            console.log("Iterador inválido.");
+    //----
+    public estaLLeno() {
+    let tanque: boolean;
+        if(tanque = true){
+            console.log("El tanque está lleno");
+        }else if(tanque = false){
+            console.log("Hay que llenar el tanque");
         }
     }
 }
+

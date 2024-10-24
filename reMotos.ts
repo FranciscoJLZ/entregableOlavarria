@@ -1,57 +1,27 @@
-export class Motos {
-    private arrMotos: Motos[]=[];
-    private marcaMoto: string;
-    private modeloMoto: string;
-    private valorMoto: string;
+import { RegistroAutomotor } from "./reMain"
+import { Vehiculos } from "./reVehiculos";
+export class Motos extends Vehiculos {
+    private cilindrada: number;
     //-----------------
-    constructor(marcaMoto: string, modeloMoto: string, valorMoto: string){
-        this.marcaMoto= marcaMoto;
-        this.modeloMoto=modeloMoto;
-        this.valorMoto=valorMoto;
+    constructor(marca: string, modelo: string, valor: string, cilindrada: number) {
+        super(marca, modelo, valor)
+        this.cilindrada = cilindrada;
     }
-    //pseudo,getters----
-    getMarca(){
-        return this.marcaMoto;
+    //getters----
+    public getCilindrada() {
+        return this.cilindrada;
     }
-    getModelo(){
-        return this.modeloMoto;
+    //setters----
+    public setCilindrada(cilindrada: number) {
+        return this.cilindrada;
     }
-    getValor(){
-        return this.valorMoto;
-    }
-    //psudo,setters----
-    setMarca(marcaMoto: string){
-        this.marcaMoto = marcaMoto;
-    }
-    setModelo(modeloMoto: string) {
-        this.modeloMoto = modeloMoto;
-    }
-    setValor(valorMoto:string){
-        this.valorMoto=valorMoto;
-    }
-    //Methods----
-    public agregarMoto(marcaMoto:string,modeloMoto:string,valorMoto:string){
-        const nuevaMoto: Motos = new Motos(marcaMoto,modeloMoto,valorMoto);
-        this.arrMotos.push(nuevaMoto);
-        console.log("Se agregó la nueva Moto ",+marcaMoto);
-    }
-    public modificarMoto(nuevaMarca:string, nuevoModelo: string, nuevoValor: string,i: number) {
-        if(i>=0 && i< this.arrMotos.length) {
-            const moto: Motos = this.arrMotos[i];
-            moto.setMarca(nuevaMarca);
-            moto.setModelo(nuevoModelo);
-            moto.setValor(nuevoValor);
-            console.log("Se ha modificado el vehiculo con exito.")
-        }else{
-            console.log("Iterador inválido.")
+    //methods----
+    public esAltaCilindrada() {
+        if (this.cilindrada>200) {
+            console.log("No es alta cilindrada");
+        }else if(this.cilindrada<200){
+            console.log("Es alta cilindrada");
         }
     }
-    public darDeBaja(i: number): void {
-        if (i >= 0 && i < this.arrMotos.length) {
-            this.arrMotos.splice(i, 1);
-            console.log("Se ha dado de baja el auto en el índice ", i);
-        } else {
-            console.log("Iterador inválido.");
-        }
-    }
+
 }

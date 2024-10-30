@@ -1,6 +1,6 @@
 import { StatMain } from "./statMain";
 
-export class asesino extends StatMain {
+export class Asesino extends StatMain {
     public constructor(nombre: string) {
         super(nombre);
     }
@@ -13,16 +13,6 @@ export class asesino extends StatMain {
         this.setFuerza(30);
         this.setInteligencia(35);
     }
-    public level(): void {
-        this.nivel = 1;
-        if (this.experiencia > 600) {
-            this.nivel = this.nivel + 1;
-        }
-    }
-    public totalExp(): void {
-        this.experiencia = 0;
-    }
-
     public defEvolucionMaestroAsesino() {
         this.getVelocidad() + 190;
         this.getVida() + 380;
@@ -35,17 +25,7 @@ export class asesino extends StatMain {
     public defMaestroAsesino() {
         if (this.nivel >= 50) {
             return this.defEvolucionMaestroAsesino;
-        } else{
-            return false;
-        }
-    }
-
-    public abrirCaja(cajaAbierta: boolean) {
-        if (cajaAbierta = true) {
-            let i = Math.floor(Math.random() * this.cofre.length);
-            this.habilidades.push(this.habilidades[i]);
-            console.log("Aprendiste la habilidad: ", +this.cofre[i]);
-        }else{
+        } else {
             return false;
         }
     }
@@ -54,9 +34,5 @@ export class asesino extends StatMain {
     }
     public defender() {
         this.getVida() + this.getVelocidad();
-    }
-    public usarHabilidad(i: string) {
-        parseInt(i);
-        return this.habilidades[i];
     }
 }

@@ -1,6 +1,6 @@
 import { StatMain } from "./statMain";
 
-export class mago extends StatMain {
+export class Mago extends StatMain {
     public constructor(nombre: string) {
         super(nombre);
     }
@@ -13,16 +13,6 @@ export class mago extends StatMain {
         this.setFuerza(7);
         this.setInteligencia(80);
     }
-    public level(): void {
-        this.nivel = 1;
-        if (this.experiencia > 600) {
-            this.nivel = this.nivel + 1;
-        }
-    }
-    public totalExp(): void {
-        this.experiencia = 0;
-    }
-
     public defEvolucionNigromante() {
         this.getVelocidad() + 40;
         this.getVida() + 480;
@@ -39,22 +29,10 @@ export class mago extends StatMain {
             return false;
         }
     }
-    public abrirCaja() {
-        let cajaAbierta: boolean;
-        if (cajaAbierta = true) {
-            let i = Math.floor(Math.random() * this.cofre.length);
-            this.habilidades.push(this.cofre[i]);
-            console.log("Aprendiste la habilidad: ", +this.cofre[i]);
-        }
-    }
     public atacar() {
         this.getDañoMagico() + this.getInteligencia();
     }
     public defender() {
         this.getVida() + this.getInteligencia();
-    }
-    public usarHabilidad(i: string) {
-        parseInt(i);
-        return this.habilidades[i];
     }
 }

@@ -1,6 +1,6 @@
 import { StatMain } from "./statMain";
 
-export class clerigo extends StatMain {
+export class Clerigo extends StatMain {
     public constructor(nombre: string) {
         super(nombre);
     }
@@ -12,15 +12,6 @@ export class clerigo extends StatMain {
         this.setDañoMagico(90);
         this.setFuerza(10);
         this.setInteligencia(110);
-    }
-    public level(): void {
-        this.nivel = 1;
-        if (this.experiencia > 600) {
-            this.nivel = this.nivel + 1;
-        }
-    }
-    public totalExp(): void {
-        this.experiencia += 0;
     }
     public defEvolucionSanador() {
             this.getVelocidad() + 80;
@@ -37,22 +28,10 @@ export class clerigo extends StatMain {
             return false;
         }
     }
-    public abrirCaja() {
-        let cajaAbierta: boolean;
-        if (cajaAbierta = true) {
-            let i = Math.floor(Math.random() * this.cofre.length);
-            this.habilidades.push(this.cofre[i]);
-            console.log("Aprendiste la habilidad: ", +this.cofre[i]);
-        }
-    }
     public atacar() {
         this.getDañoFisico() + this.getFuerza();
     }
     public defender() {
         this.getVida() + this.getFuerza();
-    }
-    public usarHabilidad(i: string) {
-        parseInt(i);
-        return this.habilidades[i];
     }
 }

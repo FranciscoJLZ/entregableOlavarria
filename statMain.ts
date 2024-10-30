@@ -1,7 +1,15 @@
-import { Personaje } from "./personaje"; import { asesino } from "./asesino"; import { mago } from "./mago";
+import { Personaje } from "./personaje"; 
+import { Asesino } from "./asesino"; 
+import { Mago } from "./mago"; 
+import { Barbaro } from "./barbaro"; 
+import { Luchador } from "./luchador"; 
+import { Arquero } from "./arquero"; 
+import { Clerigo } from "./clerigo";
 
 export abstract class StatMain extends Personaje {
-    protected cofre: string[] = ["acelerar","adivinacion","agarre electrizante","agrandar","reducir","alarma","Aliado planar","Alterar el propio aspecto","Alternar los recuerdos","Alzar a los muertos","Animar objetos"];
+    protected cofre: string[] = ["acelerar","adivinacion","agarre electrizante",
+        "agrandar","reducir","alarma","Aliado planar","Alterar el propio aspecto",
+        "Alternar los recuerdos","Alzar a los muertos","Animar objetos"];
     protected habilidades: string[] = [];
     protected velocidad: number;
     protected vida: number;
@@ -67,7 +75,34 @@ export abstract class StatMain extends Personaje {
     }
     //Methods----
     abstract establecerStats(): void;
+
     abstract atacar(): void;
+
     abstract defender(): void;
+
+    public abrirCaja() {
+        let cajaAbierta: boolean;
+        if (cajaAbierta = true) {
+            let i = Math.floor(Math.random() * this.cofre.length);
+            this.habilidades.push(this.cofre[i]);
+            console.log("Aprendiste la habilidad: ", +this.cofre[i]);
+        }
+    }
+
+    public level(): void {
+        this.setNivel(1);
+        if (this.getExperiencia() > 600) {
+            this.getNivel() + 1;
+        }
+    }
+
+    public totalExp(): void {
+        this.setExperiencia(0);
+    }
+    
+    public usarHabilidad(i: string) {
+        parseInt(i);
+        return this.habilidades[i];
+    }
 }
 

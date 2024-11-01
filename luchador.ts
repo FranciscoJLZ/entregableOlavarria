@@ -13,21 +13,7 @@ export class Luchador extends StatMain {
         this.setFuerza(30);
         this.setInteligencia(28);
     }
-    public defEvolucionPaladin() {
-            this.getVelocidad() + 40;
-            this.getVida() + 1800;
-            this.getDañoFisico() + 280;
-            this.getDañoMagico() + 30;
-            this.getFuerza() + 180;
-            this.getInteligencia() + 30;
-    }
-    public asignarPaladin() {
-        if (this.getNivel() >= 50) {
-            return this.defEvolucionPaladin();
-        } else{
-            return false;
-        }
-    }
+
     public atacar() {
         this.getDañoFisico() + this.getFuerza();
     }

@@ -13,22 +13,6 @@ export class Asesino extends StatMain {
         this.setFuerza(30);
         this.setInteligencia(35);
     }
-    public defEvolucionMaestroAsesino() {
-        this.getVelocidad() + 190;
-        this.getVida() + 380;
-        this.getDañoFisico() + 289;
-        this.getDañoMagico() + 0;
-        this.getFuerza() + 125;
-        this.getInteligencia() + 110;
-    }
-
-    public defMaestroAsesino() {
-        if (this.nivel >= 50) {
-            return this.defEvolucionMaestroAsesino;
-        } else {
-            return false;
-        }
-    }
     public atacar() {
         this.getDañoFisico() + this.getVelocidad();
     }

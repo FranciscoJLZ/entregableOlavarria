@@ -1,16 +1,13 @@
-import { Personaje } from "./personaje"; 
 import { Asesino } from "./asesino"; 
 import { Mago } from "./mago"; 
 import { Barbaro } from "./barbaro"; 
 import { Luchador } from "./luchador"; 
 import { Arquero } from "./arquero"; 
 import { Clerigo } from "./clerigo";
-
-export abstract class StatMain extends Personaje {
-    protected cofre: string[] = ["acelerar","adivinacion","agarre electrizante",
-        "agrandar","reducir","alarma","Aliado planar","Alterar el propio aspecto",
-        "Alternar los recuerdos","Alzar a los muertos","Animar objetos"];
-    protected habilidades: string[] = [];
+import { Habilidades } from "./habilidades";
+export abstract class StatMain{
+    protected cofre: Habilidades[];
+    protected habilidades: Habilidades[];
     protected velocidad: number;
     protected vida: number;
     protected dañoFisico: number;
@@ -19,9 +16,10 @@ export abstract class StatMain extends Personaje {
     protected inteligencia: number;
     protected nivel: number;
     protected experiencia: number;
+    protected nombre: string;
     //----
     public constructor(nombre: string) {
-        super(nombre);
+        this.nombre = nombre;
     }
     //getters----
     public getVelocidad() {
@@ -88,6 +86,10 @@ export abstract class StatMain extends Personaje {
             console.log("Aprendiste la habilidad: ", +this.cofre[i]);
         }
     }
+    
+    public usarHabilidad(i: number) {
+        return this.habilidades[i];
+    }
 
     public level(): void {
         this.setNivel(1);
@@ -100,9 +102,5 @@ export abstract class StatMain extends Personaje {
         this.setExperiencia(0);
     }
     
-    public usarHabilidad(i: string) {
-        parseInt(i);
-        return this.habilidades[i];
-    }
 }
 

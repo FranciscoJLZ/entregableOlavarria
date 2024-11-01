@@ -13,21 +13,6 @@ export class Clerigo extends StatMain {
         this.setFuerza(10);
         this.setInteligencia(110);
     }
-    public defEvolucionSanador() {
-            this.getVelocidad() + 80;
-            this.getVida() + 380;
-            this.getDañoFisico() + 20;
-            this.getDañoMagico() + 210;
-            this.getFuerza() + 23;
-            this.getInteligencia() + 90;
-    }
-    public asignarSanador() {
-        if (this.nivel >= 50) {
-            return this.defEvolucionSanador();
-        } else{
-            return false;
-        }
-    }
     public atacar() {
         this.getDañoFisico() + this.getFuerza();
     }
